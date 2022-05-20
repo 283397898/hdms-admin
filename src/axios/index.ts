@@ -2,10 +2,6 @@ import axios from 'axios';
 import { ElMessage, ElNotification } from 'element-plus';
 // 封装axios
 const ajax = axios.create({
-  headers: {
-    'Content-Type': 'application/json;charset=UTF-8',
-    'Access-Control-Allow-Origin-Type': '*',
-  },
   timeout: 1000 * 60,
   baseURL: 'http://127.0.0.1:8080/api/company',
   withCredentials: false,

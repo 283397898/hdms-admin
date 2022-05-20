@@ -1,16 +1,12 @@
 <script setup lang="ts">
-import { onMounted, watch } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
+import { watch } from 'vue';
+import { useRoute } from 'vue-router';
 import MainLeft from '../component/layout/mainLeft.vue';
 import MainTop from '../component/layout/mainTop.vue';
 import { usePagesStore } from '../stores/PagesStore';
 
 const { addOpenPage, openPages } = usePagesStore();
 const route = useRoute();
-const router = useRouter();
-onMounted(() => {
-  router.push({ name: 'home' });
-});
 /*
  *  判断添加标签规则1：标签是否存在
  *  判断添加标签规则2：标签是否有标题

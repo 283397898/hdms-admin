@@ -1,4 +1,4 @@
-import { reactive, watch } from 'vue';
+import { reactive } from 'vue';
 import { defineStore } from 'pinia';
 
 export const usePagesStore = defineStore('usePagesStore', () => {
@@ -7,9 +7,6 @@ export const usePagesStore = defineStore('usePagesStore', () => {
     const { name, meta } = route;
     openPages.push({ name, meta });
   }
-  watch(openPages, () => {
-    localStorage.pages = JSON.stringify(openPages);
-  });
   return {
     addOpenPage,
     openPages,

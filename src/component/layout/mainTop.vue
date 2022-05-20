@@ -7,8 +7,8 @@ const route = useRoute();
 const { openPages } = usePagesStore();
 
 // 处理标签关闭
-function handleClose(path: string) {
-  const index = openPages.findIndex((item) => item.path === path);
+function handleClose(name: string) {
+  const index = openPages.findIndex((item) => item.name === name);
 
   const del = openPages.splice(index, 1);
   // 在此页面则跳转
@@ -34,6 +34,7 @@ function toUrl(tag: any) {
   <div style="display: flex; background-color: #1c658c">
     <div style="height: 60px; flex: 1; display: flex; align-items: center">
       <el-tabs
+        :model-value="route.name"
         type="card"
         closable
         @tab-click="toUrl"
@@ -44,7 +45,7 @@ function toUrl(tag: any) {
           :key="item.name"
           style="height: 60px"
           :label="item.meta.title"
-          :name="item.path"
+          :name="item.name"
         ></el-tab-pane>
       </el-tabs>
     </div>
@@ -60,8 +61,10 @@ function toUrl(tag: any) {
   background-color: #398ab9;
 }
 :deep(.el-tabs__item) {
+  color: #d8d2cd;
   height: 60px;
   line-height: 60px;
+  border-left: none !important;
   border-bottom: none !important;
 }
 :deep(.el-tabs__header) {
@@ -76,5 +79,8 @@ function toUrl(tag: any) {
 }
 :deep(.el-tabs__content) {
   display: none;
+}
+:deep(.el-tabs__item:hover) {
+  color: #eeeeee;
 }
 </style>

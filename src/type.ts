@@ -19,3 +19,30 @@ export interface QueryData {
   type: string;
   data: string;
 }
+
+export interface Label<T> {
+  label: string;
+  value: T;
+}
+
+export interface User {
+  userId?: number | null;
+  username?: string | null;
+  phone?: string | null;
+  nickname?: string | null;
+}
+
+export interface Project {
+  projectId?: number | null;
+  address?: string | null;
+  progress?: string | null;
+  username?: string | null;
+  area?: string | null;
+  structure?: Structure | null;
+}
+export interface Structure {
+  厅: number;
+  室: number;
+  厨: number;
+  卫: number;
+}

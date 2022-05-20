@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import { reactive } from 'vue';
 import { useRouter } from 'vue-router';
 import cover from '../assets/img/cover.jpg';
@@ -23,6 +23,7 @@ const form = reactive<Form>({
   empPassword: null,
 });
 const login = () => {
+  console.log(11);
   postLogin(encrypt(JSON.stringify(form))).then(({ data }) => {
     console.log(data);
     localStorage.token = data.token;
@@ -41,8 +42,8 @@ const login = () => {
         class="` tw-flex tw-justify-center tw-items-center tw-font-extrabold tw-font-serif `"
       >
         <span
-          class="tw-bg-clip-text tw-text-transparent tw-tracking-widest tw-text-5xl tw-h-32"
           :style="`background-image: url(${textBgi});`"
+          class="tw-bg-clip-text tw-text-transparent tw-tracking-widest tw-text-5xl tw-h-32"
         >
           家装管理系统
         </span>
@@ -57,15 +58,15 @@ const login = () => {
               <el-form-item>
                 <el-input
                   v-model="form.empUsername"
-                  placeholder="请输入用户名"
                   clearable
+                  placeholder="请输入用户名"
                 ></el-input>
               </el-form-item>
               <el-form-item>
                 <el-input
                   v-model="form.empPassword"
-                  placeholder="请输入密码"
                   clearable
+                  placeholder="请输入密码"
                   show-password
                   type="password"
                 ></el-input>
