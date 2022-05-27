@@ -1,5 +1,5 @@
 <script lang="ts" name="projectList" setup>
-import { computed, reactive, ref } from 'vue';
+import { reactive, ref } from 'vue';
 import { Delete, Edit, Search } from '@element-plus/icons-vue';
 import { ElMessage, ElMessageBox } from 'element-plus';
 import { Project, QueryData, Structure } from '../../type';
@@ -83,6 +83,20 @@ const showStructure = (structure: Structure) => {
     return structureStr;
   }, '');
 };
+
+const saveStructure = () => {
+  if (structure.value && form.value) {
+    try {
+      form.value.structure = JSON.parse(structure.value);
+    } catch (e) {
+      ElMessage({
+        type: 'error',
+        message: '格式错误！',
+      });
+    }
+  }
+};
+
 const validatePhone = (rule: any, value: string, callback: any) => {
   if (value === '') {
     callback(new Error('不可为空'));
@@ -155,6 +169,8 @@ const rules = reactive({
       </el-table-column>
       <el-table-column label="地址" prop="address" />
       <el-table-column label="进度" prop="progress" />
+      <el-table-column label="图片地址" prop="imageUrl" />
+      <el-table-column label="模型地址" prop="modelUrl" />
       <el-table-column label="操作">
         <template #default="scope">
           <el-button-group class="ml-4">
@@ -197,13 +213,24 @@ const rules = reactive({
           <el-input v-model="form.area" />
         </el-form-item>
         <el-form-item label="结构：" prop="structure">
-          <el-input v-model="structure" autosize type="textarea" />
+          <el-input
+            v-model="structure"
+            autosize
+            type="textarea"
+            @blur="saveStructure"
+          />
         </el-form-item>
         <el-form-item label="地址：" prop="address">
           <el-input v-model="form.address" />
         </el-form-item>
         <el-form-item label="进度：" prop="progress">
           <el-input v-model="form.progress" />
+        </el-form-item>
+        <el-form-item label="图片地址：">
+          <el-input v-model="form.imageUrl" />
+        </el-form-item>
+        <el-form-item label="模型地址：">
+          <el-input v-model="form.modelUrl" />
         </el-form-item>
       </el-form>
     </div>

@@ -8,8 +8,8 @@ export const employeeManagement = [
     name: 'employeeManagement',
     component: layout,
     meta: {
-      icon: 'Aim',
-      title: '员工管理',
+      icon: 'OfficeBuilding',
+      title: '内部管理',
       role: [Role.ADMIN, Role.PERSONNEL],
     },
     children: [
@@ -18,7 +18,7 @@ export const employeeManagement = [
         name: 'employeeList',
         component: empList,
         meta: {
-          title: '员工列表',
+          title: '员工管理',
           role: [Role.ADMIN, Role.PERSONNEL],
         },
       },

@@ -1,8 +1,13 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
 import { employeeManagement } from './EmployeeManagement';
 import { userManagement } from './UserManagement';
+import { designDraftManagement } from './DesignDraftManagement';
 
-export const layoutTree = [...employeeManagement, ...userManagement];
+export const layoutTree = [
+  ...employeeManagement,
+  ...userManagement,
+  ...designDraftManagement,
+];
 const routes: RouteRecordRaw[] = [
   {
     path: '/',

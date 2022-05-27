@@ -9,9 +9,9 @@ export const userManagement = [
     name: 'userManagement',
     component: layout,
     meta: {
-      icon: 'Aim',
-      title: '项目管理',
-      role: [Role.ADMIN, Role.SERVICE],
+      icon: 'Collection',
+      title: '工程管理',
+      role: [Role.ADMIN, Role.SERVICE, Role.BUILDER],
     },
     children: [
       {

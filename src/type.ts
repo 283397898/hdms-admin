@@ -39,10 +39,39 @@ export interface Project {
   username?: string | null;
   area?: string | null;
   structure?: Structure | null;
+  imageUrl?: string | null;
+  modelUrl?: string | null;
 }
+
 export interface Structure {
   厅: number;
   室: number;
   厨: number;
   卫: number;
+}
+
+export interface FileDate {
+  name: string;
+  url: string;
+  lastModified: string;
+  etag: string;
+  type: string;
+  size: number;
+  storageClass: string;
+  owner: {
+    id: string;
+    displayName: string;
+  };
+}
+
+export interface Log {
+  logId?: number;
+  address?: string;
+  progress?: number;
+  username?: string;
+  area?: number;
+  structure?: object;
+  status?: boolean;
+  imageUrl?: string | null;
+  modelUrl?: string | null;
 }
